@@ -1,0 +1,14 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: sleep-cluster
+# List all the feature gates to be enabled
+featureGates:
+  # I'm enabling this feature gate since I'm using it for the demo
+  PodLifecycleSleepActionAllowZero: true
+nodes:
+- role: control-plane
+  image: kindest/node:latest # The image we built from source
+- role: worker
+  image: kindest/node:latest
+- role: worker
+  image: kindest/node:latest
